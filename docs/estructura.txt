@@ -1,0 +1,26 @@
+/helpdesk
+│── /app
+│   ├── /controllers
+│   │   ├── TicketController.php
+│   │   ├── UserController.php
+│   ├── /models
+│   │   ├── Ticket.php
+│   │   ├── User.php
+│   ├── /views
+│   │   ├── tickets
+│   │   │   ├── list.php
+│   │   │   ├── create.php
+│   │   │   ├── edit.php
+│   │   ├── users
+│   │   │   ├── login.php
+│   │   │   ├── register.php
+│── /public
+│   ├── /css
+│   ├── /js
+│   ├── index.php
+│── /core
+│   ├── Database.php
+│   ├── Router.php
+│── .htaccess
+│── config.php
+│── .env

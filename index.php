@@ -1,25 +1,6 @@
 <?php
-session_start();
+require 'app/view/login.php'; // Logica inicio sesión
 
-// Simulación de credenciales (reemplázalas con una base de datos en producción)
-$users = [
-    'admin' => 'password123',
-    'user' => '1234'
-];
-
-$error = '';
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $username = $_POST['username'] ?? '';
-    $password = $_POST['password'] ?? '';
-    
-    if (isset($users[$username]) && $users[$username] === $password) {
-        $_SESSION['user'] = $username;
-        header('Location: dashboard.php'); // Redirige a un dashboard
-        exit;
-    } else {
-        $error = 'Usuario o contraseña incorrectos';
-    }
-}
 ?>
 
 <!DOCTYPE html>
@@ -33,13 +14,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body class="flex items-center justify-center min-h-screen bg-gray-100">
     <div class="w-full max-w-sm p-6 bg-white rounded-lg shadow-md">
         <h2 class="text-2xl font-bold text-center text-gray-700">Iniciar sesión</h2>
-        <?php if ($error): ?>
-            <p class="text-red-500 text-sm text-center mt-2"><?php echo $error; ?></p>
-        <?php endif; ?>
+        <?php if (isset($error)) echo "<p style='color:red;'>$error</p>"; ?>
+            <p class="text-red-500 text-sm text-center mt-2"></p>
         <form action="" method="POST" class="mt-4">
             <div>
                 <label class="block text-sm">Usuario</label>
-                <input type="text" name="username" class="w-full px-4 py-2 mt-2 border rounded-lg focus:outline-none focus:ring focus:ring-blue-300" required>
+                <input type="text" name="login" class="w-full px-4 py-2 mt-2 border rounded-lg focus:outline-none focus:ring focus:ring-blue-300" required>
             </div>
             <div class="mt-4">
                 <label class="block text-sm">Contraseña</label>
