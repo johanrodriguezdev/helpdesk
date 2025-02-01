@@ -4,7 +4,7 @@ function conectarDB() {
     $host = 'localhost';
     $dbname = 'helpdesk';
     $username = 'root';
-    $password = '';
+    $password = 'admin';
     $charset = 'utf8mb4';
 
     // Configurar opciones de PDO
